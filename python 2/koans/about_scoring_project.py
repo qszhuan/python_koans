@@ -32,10 +32,21 @@ from runner.koan import *
 # More scoring examples are given in the tests below:
 #
 # Your goal is to write the score method.
-
+from collections import defaultdict
 def score(dice):
-    # You need to write this method
-    pass
+    group = defaultdict(int)
+    result = 0
+    for i in dice:
+        group[i] +=1 
+    
+    for k,v in group.iteritems():
+        if k ==1:
+            result += v*100 if v< 3 else (v-3) * 100 + 1000
+        elif k == 5:
+            result += v*50 if v< 3 else (v%3) * 50 + v/3*5*100
+        elif v >= 3:
+            result += v/3 * k * 100
+    return result
 
 
 class AboutScoringProject(Koan):
