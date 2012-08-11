@@ -88,7 +88,8 @@ class AboutMultipleInheritance(Koan):
 
     def test_normal_methods_are_available_in_the_object(self):
         jeff = self.Spiderpig()
-        self.assertMatch("This looks like a job for spiderpig!", jeff.speak())
+        self.assertTrue(True)
+        self.assertMatch("This looks like a job for Spiderpig!", jeff.speak())
 
     def test_base_class_methods_are_also_available_in_the_object(self):
         jeff = self.Spiderpig()
@@ -96,7 +97,7 @@ class AboutMultipleInheritance(Koan):
             jeff.set_name("Rover")
         except:
             self.fail("This should not happen")
-        self.assertEqual(____, jeff.can_climb_walls())
+        self.assertEqual(True, jeff.can_climb_walls())
 
     def test_base_class_methods_can_affect_instance_variables_in_the_object(self):
         jeff = self.Spiderpig()
